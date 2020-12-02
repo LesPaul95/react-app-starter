@@ -545,14 +545,15 @@ module.exports = function (webpackEnv) {
             : undefined
         )
       ),
-      new BundleAnalyzerPlugin({
-        analyzerMode: 'static',
-        reportFilename: 'report.html',
-        defaultSizes: 'parsed',
-        openAnalyzer: false,
-        generateStatsFile: false,
-        logLevel: 'info',
-      }),
+      isEnvProduction &&
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'static',
+          reportFilename: 'report.html',
+          defaultSizes: 'parsed',
+          openAnalyzer: false,
+          generateStatsFile: false,
+          logLevel: 'info',
+        }),
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
       // https://github.com/facebook/create-react-app/issues/5358
