@@ -1,15 +1,15 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 import App from './App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(
+test('should mount App', () => {
+  const wrapper = mount(
     <Provider store={store}>
       <App />
     </Provider>
   );
 
-  expect(getByText(/learn/i)).toBeInTheDocument();
+  expect(wrapper).not.toBeNull();
 });
