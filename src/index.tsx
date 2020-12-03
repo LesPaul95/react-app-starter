@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/index.scss';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import { I18nextProvider } from 'react-i18next';
+import i18n from './i18n';
+import './styles/index.scss';
 import App from './App';
 import { store } from './store/store';
 import * as serviceWorker from './service-worker';
@@ -9,7 +12,11 @@ import * as serviceWorker from './service-worker';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+        <I18nextProvider i18n={i18n}>
+          <App />
+        </I18nextProvider>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
