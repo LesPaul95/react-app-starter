@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { decrement, increment, incrementByAmount, incrementAsync, selectCount } from '../store/counter';
 import styles from './Counter.module.css';
 
+// TODO: Remove file
 export function Counter() {
   const count = useSelector(selectCount);
   const dispatch = useDispatch();
